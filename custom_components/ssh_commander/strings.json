@@ -1,0 +1,143 @@
+{
+  "title": "SSH Commander",
+  "config": {
+    "step": {
+      "add_machine": {
+        "title": "Add machine",
+        "description": "Enter the SSH endpoint details. Credentials are collected on the next screen.",
+        "data": {
+          "machine_name": "Name",
+          "host": "Hostname or IP address",
+          "port": "SSH port",
+          "username": "Username",
+          "auth_type": "Authentication",
+          "timeout": "Timeout"
+        },
+        "data_description": {
+          "machine_name": "Friendly name used for the Home Assistant device.",
+          "host": "Local hostname or IP address of the SSH server.",
+          "timeout": "Timeout applied to connection phases and command execution (1–300 seconds)."
+        }
+      },
+      "edit_machine": {
+        "title": "Select machine",
+        "data": {
+          "machine_id": "Machine"
+        }
+      },
+      "edit_machine_details": {
+        "title": "Edit machine",
+        "description": "Update the endpoint details. Credentials are confirmed on the next screen.",
+        "data": {
+          "machine_name": "Name",
+          "host": "Hostname or IP address",
+          "port": "SSH port",
+          "username": "Username",
+          "auth_type": "Authentication",
+          "timeout": "Timeout"
+        },
+        "data_description": {
+          "timeout": "Timeout applied to connection phases and command execution (1–300 seconds)."
+        }
+      },
+      "machine_auth": {
+        "title": "Authenticate to {machine_name}",
+        "description": "SSH Commander will test {host}. Existing credentials can be kept by leaving secret fields empty while editing.",
+        "data": {
+          "password": "Password",
+          "private_key": "Private key",
+          "private_key_passphrase": "Key passphrase"
+        },
+        "data_description": {
+          "private_key": "Paste an RSA, ECDSA, or Ed25519 private key.",
+          "private_key_passphrase": "Leave empty for an unencrypted key."
+        }
+      },
+      "confirm_host_key": {
+        "title": "Confirm SSH host key",
+        "description": "Verify this fingerprint for **{machine_name}** at **{host}** before trusting it.\n\nAlgorithm: `{algorithm}`\n\nFingerprint: `{fingerprint}`",
+        "data": {
+          "confirm": "I trust this host key"
+        }
+      },
+      "manage": {
+        "title": "Configure SSH Commander",
+        "description": "Configured machines: {machines}. Configured commands: {commands}. Changes are staged until you save and finish.",
+        "menu_options": {
+          "add_machine": "Add machine",
+          "add_command": "Add command",
+          "edit_machine": "Edit machine",
+          "edit_command": "Edit command",
+          "remove_machine": "Remove machine",
+          "remove_command": "Remove command",
+          "finish": "Save and finish"
+        }
+      },
+      "add_command": {
+        "title": "Add command",
+        "description": "Commands are fixed and can only run on the selected machine.",
+        "data": {
+          "command_name": "Name",
+          "machine_id": "Target machine",
+          "command": "Shell command"
+        }
+      },
+      "edit_command": {
+        "title": "Select command",
+        "data": {
+          "command_id": "Command"
+        }
+      },
+      "edit_command_details": {
+        "title": "Edit command",
+        "data": {
+          "command_name": "Name",
+          "machine_id": "Target machine",
+          "command": "Shell command"
+        }
+      },
+      "remove_machine": {
+        "title": "Remove machine",
+        "description": "Removing a machine also removes every command assigned to it.",
+        "data": {
+          "machine_id": "Machine"
+        }
+      },
+      "remove_command": {
+        "title": "Remove command",
+        "data": {
+          "command_id": "Command"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect. Check the address, port, firewall, SSH service, and timeout.",
+      "invalid_auth": "Authentication failed. Check the username and credentials.",
+      "invalid_private_key": "The private key or its passphrase is invalid. RSA, ECDSA, and Ed25519 keys are supported.",
+      "credentials_required": "Enter credentials for the selected authentication method.",
+      "empty_value": "This field cannot be empty.",
+      "duplicate_machine_name": "A machine with this name already exists.",
+      "duplicate_command_name": "This machine already has a command with that name.",
+      "host_key_not_confirmed": "Confirm the host key before saving this machine."
+    },
+    "abort": {
+      "reconfigure_successful": "SSH Commander configuration updated successfully."
+    }
+  },
+  "services": {
+    "run_command": {
+      "name": "Run configured command",
+      "description": "Run one allow-listed SSH command and optionally return its bounded output.",
+      "fields": {
+        "entry_id": {
+          "name": "Config entry",
+          "description": "Required only if the command ID is not unique across loaded entries."
+        },
+        "command_id": {
+          "name": "Command ID",
+          "description": "Stable ID shown in the command button's state attributes."
+        }
+      }
+    }
+  }
+}

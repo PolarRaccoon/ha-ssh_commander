@@ -1,0 +1,12 @@
+run_command:
+  fields:
+    entry_id:
+      required: false
+      selector:
+        config_entry:
+          integration: ssh_commander
+    command_id:
+      required: true
+      example: "574ae70d-dca6-4497-987d-566e53276f6e"
+      selector:
+        text:
