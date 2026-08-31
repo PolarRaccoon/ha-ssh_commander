@@ -6,6 +6,7 @@
   validators wrapped Home Assistant selectors and could not be serialized.
 - Added Home Assistant-backed regression tests for Add and Reconfigure flow
   response serialization.
+- Corrected the canonical repository name to `ha-ssh_commander`.
 
 ## 2.0.0
 

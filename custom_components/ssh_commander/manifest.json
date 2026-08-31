@@ -4,10 +4,10 @@
   "codeowners": ["@PolarRaccoon"],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/PolarRaccoon/ha-ssh-commander",
+  "documentation": "https://github.com/PolarRaccoon/ha-ssh_commander",
   "integration_type": "hub",
   "iot_class": "assumed_state",
-  "issue_tracker": "https://github.com/PolarRaccoon/ha-ssh-commander/issues",
+  "issue_tracker": "https://github.com/PolarRaccoon/ha-ssh_commander/issues",
   "loggers": ["paramiko"],
   "requirements": ["paramiko==5.0.0"],
   "version": "2.0.1"

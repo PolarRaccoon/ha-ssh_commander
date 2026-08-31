@@ -29,7 +29,7 @@ It is designed for small homelab actions such as restarting a service, waking a 
 ### HACS custom repository
 
 1. Open HACS.
-2. Add `https://github.com/PolarRaccoon/ha-ssh-commander` as a custom **Integration** repository.
+2. Add `https://github.com/PolarRaccoon/ha-ssh_commander` as a custom **Integration** repository.
 3. Install **SSH Commander**.
 4. Restart Home Assistant.
 
